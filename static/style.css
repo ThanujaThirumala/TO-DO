@@ -1,0 +1,572 @@
+/* style.css - Modern Dark Theme */
+
+/* --- Base & Typography --- */
+body { 
+    font-family: 'Roboto', sans-serif; 
+    background: #1e1e1e; /* Deep dark background */
+    color: #f0f0f0; /* Light text color */
+}
+
+/* --- Container & Layout --- */
+.container { 
+    width: 90%;
+    max-width: 600px; /* Wider container for a modern feel */
+    margin: 40px auto; 
+    padding: 30px; 
+    background: #252526; /* Slightly lighter surface color */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Subtle lift */
+    text-align:center;
+}
+
+h2 {
+    color: #4CAF50; /* Accent color for headings */
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+/* --- Navigation Bar --- */
+.navbar { 
+    background: #000000; /* Pure black for a distinct top bar */
+    padding: 15px 30px; 
+    border-bottom: 2px solid #4CAF50; /* A line of the accent color */
+    display: flex;
+    justify-content: flex-end;
+}
+.navbar a { 
+    color: #f0f0f0; 
+    margin-left: 20px; /* Use margin-left for spacing */
+    text-decoration: none; 
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+.navbar a:hover {
+    background: #3a3a3a;
+    color: #4CAF50;
+}
+
+/* --- Forms (Input/Button) --- */
+input[type="text"], 
+input[type="email"], 
+input[type="password"] { 
+    width: calc(100% - 20px); /* Adjust width */
+    padding: 12px; 
+    margin: 10px 0; 
+    background: #333333; /* Dark input background */
+    color: #f0f0f0;
+    border: 1px solid #555; /* Subtle border */
+    border-radius: 4px;
+    transition: border-color 0.3s;
+}
+input:focus {
+    border-color: #4CAF50; /* Highlight focus with accent color */
+    outline: none;
+}
+
+button { 
+    background: #4CAF50; /* Green accent color */
+    color: white; 
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 4px; 
+    cursor: pointer;
+    font-weight: 700;
+    transition: background 0.3s;
+}
+button:hover {
+    background: #45a049;
+}
+
+/* --- Task List --- */
+ul { 
+    list-style: none; 
+    padding: 0; 
+    margin-top: 20px;
+}
+
+li { 
+    background: #333333; /* Darker background for list items */
+    margin: 10px 0; 
+    padding: 15px; 
+    border-radius: 6px; 
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Space out content and icons */
+    border-left: 5px solid #4CAF50; /* Accent border for visual interest */
+    transition: background 0.3s;
+}
+li:hover {
+    background: #3a3a3a;
+}
+
+/* Task Content and Actions Group */
+.task-content {
+    flex-grow: 1;
+    word-break: break-word;
+}
+.task-actions {
+    display: flex;
+    align-items: center;
+}
+
+/* Task Action Links (Icons) */
+.task-actions a {
+    text-decoration: none;
+    font-size: 1.2em;
+    margin-left: 15px;
+    opacity: 0.7;
+    transition: opacity 0.2s, color 0.2s;
+}
+.task-actions a:hover {
+    opacity: 1;
+    color: #4CAF50; /* Highlight action on hover */
+}
+
+/* --- Completed Task Style --- */
+.completed {
+    background: #2a2a2a; /* Even darker for completed */
+    border-left: 5px solid #555; /* Subdued border */
+    color: #888; /* Faded text */
+    text-decoration: line-through;
+}
+.completed .task-actions a {
+    color: #888;
+}
+
+/* --- Flash Messages --- */
+.flash {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+.flash.success { 
+    background: #1b5e20; /* Darker green background */
+    color: #c8e6c9; /* Lighter green text */
+    border: 1px solid #4CAF50;
+}
+.flash.danger { 
+    background: #b71c1c; /* Darker red background */
+    color: #ffcdd2; /* Lighter red text */
+    border: 1px solid #f44336;
+}
+/* style.css - Footer Styling */
+/* style.css - Footer Styling */
+
+.footer {
+    background: #000000; /* Pure black, a standard dark theme color */
+    color: #888; /* Slightly faded text color */
+    padding: 20px;
+    
+    /* Centering and Alignment */
+    text-align: center; /* Aligns text and inline elements to the center */
+    
+    /* Fixed Positioning (optional, but good for a sleek dark theme) */
+    position: fixed; 
+    bottom: 0;
+    width: 100%;
+    
+    border-top: 1px solid #333;
+    font-size: 0.85em;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5); 
+}
+
+.footer p {
+    margin: 5px 0;
+}
+
+.footer a {
+    color: #4CAF50; /* Accent color for links */
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s;
+}
+
+.footer a:hover {
+    color: #f0f0f0; /* White on hover */
+}
+
+.login-form {
+    max-width: 350px; /* Set a max width so the form looks good centered */
+    margin: 20px auto; /* Centers the entire form block horizontally */
+    text-align: left; /* This keeps the inputs left-aligned *within the form* */
+}
+
+/* 3. Ensure inputs take full width of the centered form */
+.login-form input[type="email"], 
+.login-form input[type="password"] { 
+    width: 100%; 
+    /* You can remove the 'width: calc(100% - 20px);' rule if you used it before */
+}
+
+/* 4. Center the button inside the form (overriding the form's text-align: left) */
+.login-form button { 
+    display: block; /* Make the button a block element */
+    margin: 10px auto; /* Center the button block */
+}
+
+/* 5. Style the "Don't have an account" link (using previous dark theme styles) */
+.form-footer-link {
+    margin-top: 20px;
+    color: #f0f0f0;
+}
+
+.form-footer-link a {
+    color: #4CAF50; 
+    text-decoration: none; 
+    font-weight: bold;
+}
+
+/* style.css - Profile Header Styling */
+
+.profile-header {
+    /* Position the box */
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+    /* Styling */
+    background: #4CAF50; /* Use the accent green color */
+    color: #1e1e1e; /* Dark text on the accent color for contrast */
+    padding: 10px 15px;
+    font-weight: 700;
+    font-size: 0.9em;
+    border-bottom-right-radius: 8px; /* Curve the corner for a modern look */
+    
+    /* Ensure it sits above the main content */
+    z-index: 10; 
+}
+
+
+.social-links {
+    margin-bottom: 15px; /* Space between icons and copyright text */
+}
+
+.social-links a {
+    color: #f0f0f0; /* Light color for the icon */
+    font-size: 1.5em; /* Larger icon size */
+    margin: 0 10px; /* Space between icons */
+    transition: color 0.3s;
+    text-decoration: none; /* Ensure no underline on the icons */
+}
+
+.social-links a:hover {
+    color: #4CAF50; /* Accent color on hover */
+}
+
+/* Ensure general footer links are styled correctly when they aren't social icons */
+.footer .nav-links a {
+    /* Use a smaller font size for the text links below the icons */
+    font-size: 0.9em; 
+}
+
+/* style.css - Site Title Styling */
+
+.site-title-header {
+    background: #1e1e1e; /* Deep dark background */
+    padding: 20px 0;
+    text-align: center;
+    border-bottom: 1px solid #333333;
+    margin-bottom: 10px; /* Space between the title and the navbar */
+}
+
+.site-title-header h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 2.5em; /* Large, prominent size */
+    font-weight: 700;
+    color: #f0f0f0; /* Light text color */
+    display: flex; /* Use flexbox to align icon and text */
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+.site-title-header h1 i {
+    /* Style for the checkmark icon */
+    color: #4CAF50; /* Accent green color */
+    margin-right: 10px;
+    font-size: 1.2em;
+    text-shadow: 0 0 5px rgba(76, 175, 80, 0.5); /* Subtle glowing effect */
+}
+
+.site-title-header .brand-name {
+    letter-spacing: 2px; /* Spread out the letters for a modern look */
+}
+
+/* --- Global Task Page Layout --- */
+.task-page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+/* --- Filter Buttons --- */
+.task-filters {
+    display: flex;
+    background: #333333;
+    border-radius: 8px;
+    overflow: hidden; /* Ensures buttons stick to rounded corners */
+}
+
+.filter-btn {
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #f0f0f0;
+    font-weight: 500;
+    transition: background 0.3s, color 0.3s;
+    border-right: 1px solid #444; /* Separator */
+}
+
+.filter-btn:last-child {
+    border-right: none;
+}
+
+.filter-btn:hover {
+    background: #4a4a4a;
+}
+
+.filter-btn.active {
+    background: #4CAF50; /* Green accent for active filter */
+    color: white;
+}
+
+/* --- Add Task Button --- */
+.add-task-btn {
+    background: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    transition: background 0.3s;
+}
+.add-task-btn i {
+    margin-right: 8px;
+}
+.add-task-btn:hover {
+    background: #45a049;
+}
+
+/* --- Add Task Form --- */
+.add-task-form {
+    display: flex;
+    gap: 10px; /* Space between form elements */
+    margin-bottom: 30px;
+    align-items: center;
+    background: #2a2a2a;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.add-task-form input[type="text"] {
+    flex-grow: 1; /* Input takes most of the space */
+    margin: 0; /* Override default margin */
+    padding: 10px 12px;
+}
+
+.add-task-form input[type="date"] {
+    width: 150px; /* Fixed width for date input */
+    margin: 0;
+    padding: 10px 12px;
+}
+
+.add-task-form button {
+    flex-shrink: 0; /* Button doesn't shrink */
+    margin: 0;
+    padding: 10px 15px;
+}
+
+
+/* --- Task List Items --- */
+.task-list {
+    margin-bottom: 30px;
+}
+
+.task-item {
+    background: #333333;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-left: 5px solid #4CAF50; /* Accent border */
+    transition: background 0.3s;
+}
+.task-item:hover {
+    background: #3a3a3a;
+}
+
+.task-main {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.task-toggle {
+    margin-right: 15px;
+    font-size: 1.3em;
+    color: #f0f0f0; /* Color for the icons */
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.incomplete-icon {
+    color: #bbb; /* Lighter gray for incomplete */
+}
+
+.completed-icon {
+    color: #4CAF50; /* Green for completed */
+}
+
+.task-content {
+    flex-grow: 1;
+    word-break: break-word;
+    font-size: 1.1em;
+}
+
+.task-details {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0; /* Prevents details from shrinking */
+}
+
+.task-due-date {
+    color: #bbb;
+    font-size: 0.9em;
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+}
+.task-due-date i {
+    margin-right: 5px;
+    color: #888;
+}
+
+.task-action-btn {
+    text-decoration: none;
+    font-size: 1.1em;
+    margin-left: 15px;
+    opacity: 0.7;
+    transition: opacity 0.2s, color 0.2s;
+}
+.task-action-btn:hover {
+    opacity: 1;
+}
+.edit-btn {
+    color: #4CAF50; /* Accent for edit */
+}
+.delete-btn {
+    color: #f44336; /* Red for delete */
+}
+
+/* --- Task Status Dot (priority/overdue indicator) --- */
+.task-status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-left: 15px;
+    border: 1px solid #555; /* Default border */
+    background: #888; /* Default status */
+}
+.task-status-dot.overdue {
+    background: #f44336; /* Red for overdue */
+    border-color: #f44336;
+}
+.task-status-dot.today {
+    background: #ffeb3b; /* Yellow for today */
+    border-color: #ffeb3b;
+}
+
+
+/* --- Completed Tasks Section --- */
+.completed-tasks-header {
+    color: #888;
+    font-size: 1.2em;
+    margin-top: 40px;
+    margin-bottom: 15px;
+    cursor: pointer; /* Implies it's clickable to toggle */
+    display: flex;
+    align-items: center;
+}
+.completed-tasks-header .toggle-icon {
+    margin-left: 10px;
+    font-size: 0.8em;
+    transition: transform 0.3s;
+}
+/* If you implement JS to toggle, you'd rotate this */
+/* .completed-tasks-header.collapsed .toggle-icon { transform: rotate(180deg); } */
+
+.task-list.completed-list .task-item {
+    background: #2a2a2a;
+    border-left: 5px solid #555;
+    color: #888;
+    text-decoration: line-through;
+}
+.task-list.completed-list .task-toggle,
+.task-list.completed-list .task-action-btn {
+    color: #666; /* Subdued icons */
+}
+.task-list.completed-list .task-content {
+    color: #888;
+}
+
+.no-tasks {
+    text-align: center;
+    color: #aaa;
+    margin-top: 20px;
+}
+
+    .about-section {
+        max-width: 700px;
+        margin: 20px auto;
+        padding: 20px 30px;
+        background-color: #333333; /* Dark background matching app theme */
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        color: #f0f0f0;
+    }
+    .about-section h1 {
+        font-size: 2.2em;
+        border-bottom: 2px solid #555;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+        text-align: center;
+        color: #4CAF50; /* Highlight color */
+    }
+    .about-section h2 {
+        font-size: 1.5em;
+        margin-top: 25px;
+        margin-bottom: 15px;
+        color: #f0f0f0;
+    }
+    .about-section p {
+        line-height: 1.6;
+        margin-bottom: 15px;
+    }
+    .about-section .lead-text {
+        font-size: 1.1em;
+        font-weight: 500;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .about-section ul {
+        list-style-type: disc;
+        margin-left: 25px;
+        padding-left: 0;
+    }
+    .about-section ul li {
+        margin-bottom: 8px;
+        line-height: 1.4;
+        background: none; /* Override default list item background */
+        padding: 0;
+    }
+    .about-section .final-note {
+        margin-top: 30px;
+        text-align: right;
+        font-style: italic;
+        color: #aaa

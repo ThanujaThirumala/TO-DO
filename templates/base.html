@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>To-Do</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='reset.min.css') }}">
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.png') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    {% if current_user.is_authenticated %}
+      <div class="profile-header">
+       Hello, *{{ current_user.username }}*!
+      </div>
+  {% endif %}
+
+  <div class="navbar">
+    <a href="{{ url_for('tasks') }}">Tasks</a>
+    <a href="{{ url_for('signup') }}">Signup</a>
+    <a href="{{ url_for('login') }}">Login</a>
+    {% if current_user.is_authenticated %}
+      <a href="{{ url_for('logout') }}">Logout</a>
+    {% else %}
+      <a href="{{ url_for('logout') }}">Logout</a>
+    {% endif %}
+  </div>
+
+  <header class="site-title-header">
+      <h1>
+          <i class="fas fa-check-square"></i> 
+          <span class="brand-name">TO-DO</span>
+      </h1>
+  </header>
+
+  <div class="container">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% for category, message in messages %}
+        <p class="flash {{ category }}">{{ message }}</p>
+      {% endfor %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+  </div>
+
+  <div class="footer">
+    <div class="social-links">
+      <a href="https://github.com/Nanamshruthi" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/nanam-shruthi-8b747b284/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="https://www.instagram.com/shruthinanam?igsh=MXYxNDkwcG9oYWUzOA== " target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+    </div>
+
+
+  <p>&copy; 2025 To-Do App Project. Created by Shruthi.</p>
+    <p class="nav-links">
+      <a href="{{ url_for('about') }}">About Us</a> | 
+      <a href="{{ url_for('privacy') }}">Privacy Policy</a> | 
+      <a href="{{ url_for('terms') }}">Terms of Service</a> |
+      <a href="mailto:your.email@example.com?subject=Inquiry%20about%20ToDo%20App%20Project">Contact</a>
+    </p>
+  </div>
+
+</body>
+</html>
+

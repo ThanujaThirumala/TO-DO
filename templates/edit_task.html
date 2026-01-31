@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Edit Task: {{ task.content }}</h2>
+
+<form method="POST">
+    <label for="content">Task Description:</label><br>
+    <input type="text" id="content" name="content" value="{{ task.content }}" required><br><br>
+
+    <label for="due_date">Due Date:</label><br>
+    <input type="date" id="due_date" name="due_date" 
+           value="{{ task.due_date.strftime('%Y-%m-%d') if task.due_date else '' }}"><br><br>
+
+    <button type="submit">Update Task</button>
+    <a href="{{ url_for('tasks') }}" class="button-link">Cancel</a>
+</form>
+
+<style>
+/* Basic styling for the form elements */
+form {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #333333;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    color: #f0f0f0;
+    text-align: left;
+}
+input[type="text"], input[type="date"] {
+    width: calc(100% - 24px); 
+    padding: 10px 12px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    background: #1e1e1e;
+    border: 1px solid #555;
+    border-radius: 4px;
+    color: #f0f0f0;
+}
+button, .button-link {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin-right: 10px;
+}
+button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+}
+.button-link {
+    background-color: #555;
+    color: white;
+}
+</style>
+{% endblock %}

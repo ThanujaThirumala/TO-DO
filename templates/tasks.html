@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!--div class="task-page-header">
+    <div class="task-filters">
+        <a href="{{ url_for('tasks', filter='today') }}" class="filter-btn {% if request.args.get('filter') == 'today' %}active{% endif %}">Today</a>
+        <a href="{{ url_for('tasks', filter='pending') }}" class="filter-btn {% if request.args.get('filter') == 'pending' %}active{% endif %}">Pending</a>
+        <a href="{{ url_for('tasks', filter='overdue') }}" class="filter-btn {% if request.args.get('filter') == 'overdue' %}active{% endif %}">Overdue</a>
+    </div>
+
+    <a href="#add-task-modal" class="add-task-btn"><i class="fas fa-plus-circle"></i> Add Task</a>
+</!--div-->
+
+<h2>Your Tasks</h2>
+
+<form method="POST" class="add-task-form">
+    <input type="text" name="content" placeholder="What needs to be done?" required>
+    <input type="date" name="due_date" title="Due Date">
+    <button type="submit">Add Task</button>
+</form>
+
+{% set current_filter = request.args.get('filter') %}
+<div class="task-filters">
+    <!-- 'All' is active when no filter argument is present -->
+    <a href="{{ url_for('tasks') }}" class="filter-btn {% if not current_filter %}active{% endif %}">All</a>
+    <a href="{{ url_for('tasks', filter='today') }}" class="filter-btn {% if current_filter == 'today' %}active{% endif %}">Due Today</a>
+    <a href="{{ url_for('tasks', filter='pending') }}" class="filter-btn {% if current_filter == 'pending' %}active{% endif %}">Pending</a>
+    <a href="{{ url_for('tasks', filter='overdue') }}" class="filter-btn {% if current_filter == 'overdue' %}active{% endif %}">Overdue</a>
+</div>
+
+<!-- Incomplete Tasks Section -->
+<h3 class="task-section-header">Incomplete ({{ incomplete_tasks | length }})</h3
+
+<ul class="task-list">
+  {% for task in incomplete_tasks %}
+    <li class="task-item">
+        <div class="task-main">
+            <a href="{{ url_for('toggle_task', id=task.id) }}" class="task-toggle">
+                {% if task.completed %}
+                  <i class="fas fa-check-circle completed-icon"></i>
+                {% else %}
+                  <i class="far fa-circle incomplete-icon"></i>
+                {% endif %}
+            </a>
+            <span class="task-content">{{ task.content }}</span>
+        </div>
+        
+        <div class="task-details">
+            {% if task.due_date %}
+            <span class="task-due-date">
+                <i class="far fa-clock"></i> 
+                {{ task.due_date.strftime('%a %b %d %Y') }}
+            </span>
+            {% endif %}
+
+            <a href="{{ url_for('edit_task', id=task.id) }}" class="task-action-btn edit-btn" title="Edit Task"><i class="fas fa-edit"></i></a>
+            <a href="{{ url_for('delete_task', id=task.id) }}" class="task-action-btn delete-btn" title="Delete Task"><i class="fas fa-trash-alt"></i></a>
+            <span class="task-status-dot {% if task.due_date and task.due_date < date.today() %}overdue{% elif task.due_date == date.today() %}today{% endif %}"></span>
+        </div>
+    </li>
+  {% else %}
+    <p class="no-tasks">No tasks to display. Why not add one?</p>
+  {% endfor %}
+</ul>
+
+<h3 class="completed-tasks-header">Completed <span class="toggle-icon">▲</span></h3>
+<ul class="task-list completed-list">
+  {% for task in completed_tasks %}
+    <li class="task-item completed">
+        <div class="task-main">
+            <a href="{{ url_for('toggle_task', id=task.id) }}" class="task-toggle">
+                <i class="fas fa-check-circle completed-icon"></i>
+            </a>
+            <span class="task-content">{{ task.content }}</span>
+        </div>
+        
+        <div class="task-details">
+            {% if task.due_date %}
+            <span class="task-due-date">
+                <i class="far fa-clock"></i> 
+                {{ task.due_date.strftime('%a %b %d %Y') }}
+            </span>
+            {% endif %}
+            <a href="{{ url_for('delete_task', id=task.id) }}" class="task-action-btn delete-btn" title="Delete Task"><i class="fas fa-trash-alt"></i></a>
+        </div>
+    </li>
+  {% endfor %}
+</ul>
+
+{% endblock %}

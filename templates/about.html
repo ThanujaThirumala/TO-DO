@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="about-section">
+    <h1>About ToDo</h1>
+    
+    <p class="lead-text">
+        **ToDo** is a comprehensive, full-stack To-Do list web application designed for personal productivity and built to showcase modern development skills.
+    </p>
+
+    <div class="tech-stack">
+        <h2>Technical Foundation</h2>
+        <p>
+            This application is powered by **Flask (Python)** on the backend, using **SQLAlchemy** for efficient database management (ORM), and **Jinja2** for dynamic server-side templating.
+        </p>
+        <p>
+            Security and user experience were core priorities, featuring secure user authentication (signup/login) implemented with **Flask-Login** and robust password hashing via **Bcrypt**.
+        </p>
+    </div>
+
+    <div class="features-summary">
+        <h2>Key Features</h2>
+        <p>
+            Users can efficiently manage their workflows with features like:
+        </p>
+        <ul>
+            <li>**User Isolation:** Each user has private, secure access to their own tasks.</li>
+            <li>**Dynamic Task Filtering:** Tasks are automatically categorized and filterable by **Overdue**, **Due Today**, and **Pending** status based on the due date.</li>
+            <li>**Real-Time Status Toggle:** Quick links to mark tasks complete or incomplete.</li>
+        </ul>
+    </div>
+    
+    <p class="final-note">
+        Thank you for checking out ToDo!
+    </p>
+</div>
+{% endblock %}
